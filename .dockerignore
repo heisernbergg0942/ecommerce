@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Dev tools
+.editorconfig
+.zed/
+.vscode/
+.idea/
+.nova/
+.cursor/
+.codex/
+
+# Logs & temp
+*.log
+.phpunit.result.cache
+.phpunit.cache
+
+# Environment (keep out of image — set via Railway dashboard)
+.env
+.env.example
+.env.backup
+.env.production
+
+# Composer dev
+vendor/bin/
+.phpactor.json
+_ide_helper.php
+
+# Database (don't copy local SQLite)
+*.sqlite
+
+# Node
+node_modules/
+
+# Tests
+tests/
+
+# Storage (don't copy local storage)
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+storage/app/public/
+
+# Docs
+README.md
