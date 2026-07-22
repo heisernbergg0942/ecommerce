@@ -22,10 +22,15 @@ chmod -R 755 /var/www/html/public
 echo "→ Linking storage..."
 php artisan storage:link --force 2>/dev/null || true
 
+# Ensure writable cache directories before clearing/caching
+echo "→ Fixing cache permissions..."
+chmod -R 777 /var/www/html/storage/framework/cache
+chmod -R 777 /var/www/html/bootstrap/cache
+
 # Clear stale caches before rebuilding
 echo "→ Clearing stale caches..."
 php artisan config:clear
-php artisan cache:clear
+php artisan cache:clear || true
 
 # Cache Laravel config/routes/views for production
 echo "→ Caching config & routes..."
