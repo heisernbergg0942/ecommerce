@@ -5,6 +5,14 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "  AngkorShop — Railway Deployment"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+# Create required storage directories
+echo "→ Creating storage directories..."
+mkdir -p storage/framework/views
+mkdir -p storage/framework/cache
+mkdir -p storage/framework/sessions
+mkdir -p storage/logs
+chmod -R 775 storage
+
 # Storage symlink (idempotent)
 echo "→ Linking storage..."
 php artisan storage:link --force 2>/dev/null || true
