@@ -31,5 +31,11 @@ php artisan migrate --force
 echo "→ Seeding database..."
 php artisan db:seed --force
 
+# Replace PORT placeholder in nginx config (Railway sets $PORT)
+export PORT="${PORT:-8080}"
+echo "→ Configuring Nginx to listen on port $PORT..."
+envsubst '${PORT}' < /etc/nginx/http.d/default.conf > /tmp/nginx.conf
+mv /tmp/nginx.conf /etc/nginx/http.d/default.conf
+
 echo "→ Starting Nginx + PHP-FPM..."
 exec /usr/bin/supervisord -c /etc/supervisord.conf
