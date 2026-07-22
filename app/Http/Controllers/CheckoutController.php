@@ -79,7 +79,7 @@ class CheckoutController extends Controller
             ]);
 
             foreach ($cartItems as $item) {
-                $product = $item->product->freshLockForUpdate();
+                $product = Product::lockForUpdate()->find($item->product_id);
 
                 if ($product->stock < $item->quantity) {
                     throw new \RuntimeException("Insufficient stock for '{$product->name}'. Only {$product->stock} left.");
