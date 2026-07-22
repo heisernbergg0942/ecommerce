@@ -58,7 +58,7 @@ COPY --from=composer /app/vendor /var/www/vendor
 COPY . .
 
 # Copy built frontend assets
-COPY --from=node /app/public/build /var/www/public/build
+COPY --from=node /app/public/build /var/www/html/public/build
 
 # Fix permissions
 RUN chown -R www-data:www-data storage bootstrap/cache \
