@@ -5,13 +5,16 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "  AngkorShop — Railway Deployment"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-# Create required storage directories
+# Create required storage directories and fix permissions
 echo "→ Creating storage directories..."
 mkdir -p storage/framework/views
 mkdir -p storage/framework/cache
 mkdir -p storage/framework/sessions
 mkdir -p storage/logs
-chmod -R 775 storage
+chmod -R 777 /var/www/storage
+chmod -R 777 /var/www/bootstrap/cache
+chown -R www-data:www-data /var/www/storage
+chown -R www-data:www-data /var/www/bootstrap/cache
 
 # Storage symlink (idempotent)
 echo "→ Linking storage..."
