@@ -53,8 +53,8 @@ RUN apk add --no-cache \
     && rm -rf /var/cache/apk/*
 
 # Copy app code
-WORKDIR /var/www
-COPY --from=composer /app/vendor /var/www/vendor
+WORKDIR /var/www/html
+COPY --from=composer /app/vendor /var/www/html/vendor
 COPY . .
 
 # Copy built frontend assets

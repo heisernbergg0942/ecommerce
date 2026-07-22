@@ -11,10 +11,12 @@ mkdir -p storage/framework/views
 mkdir -p storage/framework/cache
 mkdir -p storage/framework/sessions
 mkdir -p storage/logs
-chmod -R 777 /var/www/storage
-chmod -R 777 /var/www/bootstrap/cache
-chown -R www-data:www-data /var/www/storage
-chown -R www-data:www-data /var/www/bootstrap/cache
+chmod -R 777 /var/www/html/storage
+chmod -R 777 /var/www/html/bootstrap/cache
+chown -R www-data:www-data /var/www/html/storage
+chown -R www-data:www-data /var/www/html/bootstrap/cache
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html/public
 
 # Storage symlink (idempotent)
 echo "→ Linking storage..."
