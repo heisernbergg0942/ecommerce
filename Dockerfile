@@ -2,7 +2,10 @@
 FROM composer:2 AS composer
 
 WORKDIR /app
-COPY composer.json composer.lock ./
+
+# Copy all files so artisan + app code exist for post-autoload-dump scripts
+COPY . .
+
 RUN composer install \
     --no-dev \
     --no-interaction \

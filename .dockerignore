@@ -23,8 +23,8 @@
 .env.backup
 .env.production
 
-# Composer dev
-vendor/bin/
+# Composer (installed in Docker build stage)
+vendor/
 .phpactor.json
 _ide_helper.php
 
